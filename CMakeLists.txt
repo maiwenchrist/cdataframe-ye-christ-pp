@@ -4,4 +4,9 @@ project(cdataframe_ye_christ_pp C)
 set(CMAKE_C_STANDARD 11)
 
 add_executable(cdataframe_ye_christ_pp
-        main.c function.h function.c)
+        main.c
+        cdataframe.c
+        cdataframe.h
+        column.c
+        column.h
+)
