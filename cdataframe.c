@@ -47,7 +47,7 @@ void fill_dataframe_from_user_input(CDataframe *df) {
 
         // Demander à l'utilisateur le nombre de valeurs à ajouter à la colonne
         int num_values;
-        printf("Entrez le nombre de valeurs a ajouter à la colonne \"%s\" : ", title);
+        printf("Entrez le nombre de valeurs a ajouter a la colonne \"%s\" : ", title);
         scanf("%d", &num_values);
 
         // Pour chaque valeur
@@ -65,7 +65,7 @@ void fill_dataframe_from_user_input(CDataframe *df) {
 
         // Ajouter la colonne remplie au CDataframe
         add_column_to_dataframe(df, col);
-        printf("Colonne \"%s\" ajoutee au CDataframe avec succès\n", title);
+        printf("Colonne \"%s\" ajoutee au CDataframe avec succes\n", title);
     }
 }
 
