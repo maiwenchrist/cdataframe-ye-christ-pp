@@ -82,14 +82,12 @@ int fill_dataframe_hardcoded(CDataframe *df) {
     insert_value(col1, 30);
     insert_value(col1, 22);
     add_column(df, col1);
-    printf(col1);
 
     COLUMN *col2 = create_column("Score");
     insert_value(col2, 88);
     insert_value(col2, 92);
     insert_value(col2, 76);
     add_column(df, col2);
-    printf(col2);
     return 0;
 }
 
