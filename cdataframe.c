@@ -102,13 +102,7 @@ void print_dataframe(CDataframe *df) {
 
     // Parcourir chaque colonne
     for (int i = 0; i < df->num_columns; i++) {
-        printf("Colonne %d - %s:\n", i + 1, df->columns[i]->title);
-        printf("[Index]\tValeur\n");
-        // Afficher les valeurs de la colonne
-        for (int j = 0; j < df->columns[i]->logical_size; j++) {
-            printf("[%d]\t%d\n", j, df->columns[i]->data[j]);
-        }
-        printf("\n");
+            print_col(df->columns[i]);
     }
 }
 
