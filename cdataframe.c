@@ -186,3 +186,21 @@ void delete_dataframe(CDataframe **df) {
     free(*df);
     *df = NULL;
 }
+
+void add_row(CDataframe *df, int * values){
+    for(int i = 0 ; i< df -> num_columns ; i++){
+        insert_value(df->columns[i], values[i]);
+    }
+    print_dataframe(df);
+}
+
+void remove_row(CDataframe *df, int row_index){
+    for(int i = 0; i < df ->num_columns; i++){
+        if(row_index < df->columns[i]->logical_size){
+            for(int j = row_index; j < df->columns[i]->logical_size-1; j++){
+                df->columns[i]->data[j] = df->columns[i]->data[j+1];
+            }
+            df->columns[i]->logical_size--;
+        }
+    }
+}

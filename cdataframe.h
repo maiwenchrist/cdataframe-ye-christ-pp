@@ -23,6 +23,8 @@ void print_dataframe(CDataframe *df);
 void print_partial_dataframe(CDataframe *df, int limite);
 void print_partial_columns(CDataframe *df, int limite);
 void delete_dataframe(CDataframe **df);
+void add_row(CDataframe *df, int * values);
+void remove_row(CDataframe *df, int row_index);
 
 
 #endif //CDATAFRAME_YE_CHRIST_PP_CDATAFRAME_H
