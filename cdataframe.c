@@ -20,6 +20,12 @@ CDataframe* create_dataframe() {
 
     return df;
 }
+// Ajout d'une colonne au CDataframe
+void add_column(CDataframe *df, COLUMN *column) {
+    df->num_columns++;
+    df->columns = (COLUMN**) realloc(df->columns, df->num_columns * sizeof(COLUMN*));
+    df->columns[df->num_columns - 1] = column;
+}
 
 // Fonction pour remplir un CDataframe à partir des saisies utilisateur
 void fill_dataframe_from_user_input(CDataframe *df) {
@@ -39,7 +45,7 @@ void fill_dataframe_from_user_input(CDataframe *df) {
         scanf("%s", title);
 
         // Créer une nouvelle colonne avec le titre fourni par l'utilisateur
-        Column *col = create_column(title);
+        COLUMN *col = create_column(title);
         if (col == NULL) {
             printf("Erreur lors de la creation de la colonne\n");
             return;
@@ -70,32 +76,21 @@ void fill_dataframe_from_user_input(CDataframe *df) {
 }
 
 // Fonction pour remplir en dur un CDataframe
-void fill_dataframe_hardcoded(CDataframe *df) {
-    if (df == NULL) {
-        return; // Vérifier si le CDataframe existe
-    }
+int fill_dataframe_hardcoded(CDataframe *df) {
+    COLUMN *col1 = create_column("Age");
+    insert_value(col1, 25);
+    insert_value(col1, 30);
+    insert_value(col1, 22);
+    add_column(df, col1);
+    printf(col1);
 
-    // Exemple de données en dur
-    // Vous pouvez modifier cette partie selon vos besoins
-    int data1[] = {10, 20, 30, 40, 50};
-    int data2[] = {1, 2, 3, 4, 5};
-
-    // Créer une colonne pour chaque jeu de données
-    Column *col1 = create_column("Colonne 1");
-    Column *col2 = create_column("Colonne 2");
-
-    // Ajouter les valeurs à chaque colonne
-    for (int i = 0; i < sizeof(data1) / sizeof(int); i++) {
-        insert_value(col1, data1[i]);
-    }
-
-    for (int i = 0; i < sizeof(data2) / sizeof(int); i++) {
-        insert_value(col2, data2[i]);
-    }
-
-    // Ajouter les colonnes remplies au CDataframe
-    add_column_to_dataframe(df, col1);
-    add_column_to_dataframe(df, col2);
+    COLUMN *col2 = create_column("Score");
+    insert_value(col2, 88);
+    insert_value(col2, 92);
+    insert_value(col2, 76);
+    add_column(df, col2);
+    printf(col2);
+    return 0;
 }
 
 // Fonction pour afficher tout le contenu d'un CDataframe
@@ -161,7 +156,7 @@ void print_partial_columns(CDataframe *df, int limite) {
     }
 }
 
-void add_column_to_dataframe(CDataframe *df, Column *col) {
+void add_column_to_dataframe(CDataframe *df, COLUMN *col) {
     if (df == NULL || col == NULL) {
         return; // Vérifier si le CDataframe ou la colonne existent
     }
@@ -169,7 +164,7 @@ void add_column_to_dataframe(CDataframe *df, Column *col) {
     // Réallouer de l'espace si nécessaire
     if (df->num_columns >= df->physical_size) {
         int new_size = df->physical_size + REALLOC_SIZE;
-        Column **new_columns = realloc(df->columns, new_size * sizeof(Column *));
+        COLUMN **new_columns = realloc(df->columns, new_size * sizeof(COLUMN *));
         if (new_columns == NULL) {
             return; // En cas d'échec de ré-allocation de mémoire
         }

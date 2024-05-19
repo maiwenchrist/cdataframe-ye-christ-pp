@@ -8,5 +8,4 @@ add_executable(cdataframe_ye_christ_pp
         cdataframe.c
         cdataframe.h
         column.c
-        column.h
-)
+        column.h)
