@@ -148,27 +148,6 @@ void print_partial_columns(CDataframe *df, int limite) {
     }
 }
 
-void add_column_to_dataframe(CDataframe *df, COLUMN *col) {
-    if (df == NULL || col == NULL) {
-        return; // Vérifier si le CDataframe ou la colonne existent
-    }
-
-    // Réallouer de l'espace si nécessaire
-    if (df->num_columns >= df->physical_size) {
-        int new_size = df->physical_size + REALLOC_SIZE;
-        COLUMN **new_columns = realloc(df->columns, new_size * sizeof(COLUMN *));
-        if (new_columns == NULL) {
-            return; // En cas d'échec de ré-allocation de mémoire
-        }
-        df->columns = new_columns;
-        df->physical_size = new_size;
-    }
-
-    // Ajouter la colonne au CDataframe
-    df->columns[df->num_columns] = col;
-    df->num_columns++;
-}
-
 void delete_dataframe(CDataframe **df) {
     if (*df == NULL) {
         return; // Vérifier si le CDataframe existe
@@ -203,4 +182,43 @@ void remove_row(CDataframe *df, int row_index){
             df->columns[i]->logical_size--;
         }
     }
+}
+
+void add_column_to_dataframe(CDataframe *df, COLUMN *col) {
+    if (df == NULL || col == NULL) {
+        return; // Vérifier si le CDataframe ou la colonne existent
+    }
+
+    // Réallouer de l'espace si nécessaire
+    if (df->num_columns >= df->physical_size) {
+        int new_size = df->physical_size + REALLOC_SIZE;
+        COLUMN **new_columns = realloc(df->columns, new_size * sizeof(COLUMN *));
+        if (new_columns == NULL) {
+            return; // En cas d'échec de ré-allocation de mémoire
+        }
+        df->columns = new_columns;
+        df->physical_size = new_size;
+    }
+
+    // Ajouter la colonne au CDataframe
+    df->columns[df->num_columns] = col;
+    df->num_columns++;
+}
+
+void remove_col(CDataframe *df,  int col_index){
+    if(col_index < df->num_columns){
+        free(df->columns[col_index]->title);
+        free(df->columns[col_index]->data);
+        free(df->columns[col_index]);
+        for(int i = col_index; i<df->num_columns -1; i++) {
+            df->columns[i] =df->columns[i+1];
+        }
+        df->num_columns--;
+        df->columns = (COLUMN**) realloc(df->columns, df->num_columns * sizeof(COLUMN*));
+    }
+}
+
+void rename_col(COLUMN *col, char *new_title){
+    free(col->title);
+    col->title = new_title;
 }
