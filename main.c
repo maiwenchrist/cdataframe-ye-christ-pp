@@ -117,6 +117,16 @@ int main() {
                 rename_col(df->columns[col_idx], new_title);
                 printf("Colonne renommée.\n");
                 break;
+            case 12:
+                int value;
+                printf("Valeur à rechercher: ");
+                scanf("%d", &value);
+                if (value_exists(df, value)) {
+                    printf("Valeur trouvée.\n");
+                } else {
+                    printf("Valeur non trouvée.\n");
+                }
+                break;
                 // Additional cases for other options should be implemented here
             case 20:
                 printf("Programme terminé.\n");

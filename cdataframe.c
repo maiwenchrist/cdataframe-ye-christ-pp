@@ -205,20 +205,36 @@ void add_column_to_dataframe(CDataframe *df, COLUMN *col) {
     df->num_columns++;
 }
 
-void remove_col(CDataframe *df,  int col_index){
-    if(col_index < df->num_columns){
-        free(df->columns[col_index]->title);
-        free(df->columns[col_index]->data);
-        free(df->columns[col_index]);
-        for(int i = col_index; i<df->num_columns -1; i++) {
-            df->columns[i] =df->columns[i+1];
+void remove_col(CDataframe *df, int col_index) {
+    if (df && col_index >= 0 && col_index < df->num_columns) {
+        // Supprimer la colonne
+        delete_column(&df->columns[col_index]);
+
+        // Réajuster les pointeurs des colonnes restantes
+        for (int i = col_index; i < df->num_columns - 1; i++) {
+            df->columns[i] = df->columns[i + 1];
         }
+
+        // Réduire le nombre de colonnes
         df->num_columns--;
+
+        // Réallouer la mémoire pour le tableau de colonnes
         df->columns = (COLUMN**) realloc(df->columns, df->num_columns * sizeof(COLUMN*));
     }
 }
 
 void rename_col(COLUMN *col, char *new_title){
     free(col->title);
-    col->title = new_title;
+    col->title = strdup(new_title);
+}
+
+int value_exists(CDataframe *cdf, int value){
+    for (int i = 0; i < cdf->num_columns; i++) {
+        for (int j = 0; j < cdf->columns[i]->logical_size; j++) {
+            if (cdf->columns[i]->data[j] == value) {
+                return 1;
+            }
+        }
+    }
+    return 0;
 }

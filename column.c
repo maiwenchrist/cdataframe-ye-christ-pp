@@ -30,6 +30,7 @@ void delete_column(COLUMN **col) {
         *col =NULL;
     }
 }
+
 void print_col(COLUMN* col){
     printf("affichage de la colonne  %s\n",col->title);
     for(int i = 0; i<col->logical_size; i++){
