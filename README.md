@@ -17,7 +17,7 @@ Le projet est divisé en plusieurs fichiers :
 
 Pour compiler le projet, assurez-vous d'avoir un compilateur C installé sur votre machine. Utilisez la commande suivante pour compiler tous les fichiers source et générer un exécutable :
 
-        *gcc -o dataframe main.c cdataframe. column.c
+        gcc -o dataframe main.c cdataframe. column.c
         
 Cette commande créera un exécutable nommé dataframe.
 
@@ -25,7 +25,7 @@ Cette commande créera un exécutable nommé dataframe.
 
 Pour exécuter le programme, utilisez la commande suivante :
 
-        *./dataframe
+        ./dataframe
 
 ## Utilisation
 
