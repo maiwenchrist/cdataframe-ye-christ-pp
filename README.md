@@ -48,21 +48,33 @@ Le programme offre un menu interactif qui vous permet de choisir parmi différen
 ### Opérations usuelles
 
 *Ajouter une ligne : Ajoute une nouvelle ligne au DataFrame.
+
 *Supprimer une ligne : Supprime une ligne spécifiée du DataFrame.
+
 *Ajouter une colonne : Ajoute une nouvelle colonne au DataFrame.
+
 *Supprimer une colonne : Supprime une colonne spécifiée du DataFrame.
+
 *Renommer une colonne : Renomme une colonne spécifiée du DataFrame.
+
 *Vérifier l'existence d'une valeur : Vérifie si une valeur spécifiée existe dans le DataFrame.
+
 *Accéder/remplacer une valeur : Accède ou remplace une valeur spécifiée dans le DataFrame.
+
 *Afficher les noms des colonnes : Affiche les noms de toutes les colonnes du DataFrame.
         
 ### Analyse et statistiques
 
 *Afficher le nombre de lignes : Affiche le nombre de lignes dans le DataFrame.
+
 *Afficher le nombre de colonnes : Affiche le nombre de colonnes dans le DataFrame.
+
 *Nombre de cellules contenant une valeur égale à x : Compte le nombre de cellules contenant une valeur égale à une valeur spécifiée.
+
 *Nombre de cellules contenant une valeur supérieure à x : Compte le nombre de cellules contenant une valeur supérieure à une valeur spécifiée.
+
 *Nombre de cellules contenant une valeur inférieure à x : Compte le nombre de cellules contenant une valeur inférieure à une valeur spécifiée.
+
 *Quitter : Quitte le programme.
 
 ### Navigation dans le menu
@@ -74,7 +86,9 @@ Le programme offre un menu interactif qui vous permet de choisir parmi différen
 Voici quelques exemples d'utilisation des options du menu :
 
 *Pour créer un DataFrame vide, choisissez l'option 1.
+
 *Pour ajouter une colonne, choisissez l'option 9 et suivez les instructions à l'écran pour entrer le nom de la colonne et ses valeurs.
+
 *Pour afficher tout le DataFrame, choisissez l'option 4.
         
 ## Libération de la mémoire
