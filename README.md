@@ -40,7 +40,9 @@ Le programme offre un menu interactif qui vous permet de choisir parmi différen
 ### Affichage
 
 *Afficher tout le DataFrame : Affiche toutes les données contenues dans le DataFrame.
+
 *Afficher une partie des lignes du DataFrame : Affiche un nombre spécifié de lignes du DataFrame.
+
 *Afficher une partie des colonnes du DataFrame : Affiche un nombre spécifié de colonnes du DataFrame.
         
 ### Opérations usuelles
