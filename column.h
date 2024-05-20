@@ -13,7 +13,7 @@ typedef struct {
     int physical_size;
 } COLUMN;
 
-COLUMN *create_column(const char *title);
+COLUMN *create_column(char *title);
 int insert_value(COLUMN *col, int value);
 void delete_column(COLUMN **col);
 int count_values_greater_than_x(COLUMN *col, int x);

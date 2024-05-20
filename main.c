@@ -4,7 +4,7 @@
 int main() {
     printf("Bienvenue dans le excel en CDataframe.\n");
 
-    CDataframe *df = create_dataframe();
+    CDataframe *df = create_dataframe(); //création d'un df
     if (df == NULL) {
         printf("Erreur lors de la creation du CDataframe.\n");
         return 1;
@@ -92,7 +92,7 @@ int main() {
             case 7:
             {
                 int column_count = df->num_columns;
-                int values[column_count];
+                int values[column_count]; //tab pour stocker les val de la nouvelle ligne
                 printf("Entrez les valeurs de la nouvelle ligne:\n");
                 for (int i = 0; i < column_count; i++) {
                     printf("Valeur pour la colonne %s: ", df->columns[i]->title);
@@ -109,45 +109,37 @@ int main() {
                 scanf("%d", &row);
                 remove_row(df, row);
                 printf("Ligne supprimee.\n");
-                break; // Ajoute cette instruction pour sortir du switch après avoir supprimé la ligne
+                break;
             }
 
             case 9:
             {
-                // Saisir le nom de la nouvelle colonne
                 char new_column_name[100];
                 printf("Nom de la nouvelle colonne: ");
                 scanf("%s", new_column_name);
 
-                // Créer une nouvelle colonne
                 COLUMN *new_column = create_column(new_column_name);
                 if (new_column == NULL) {
                     printf("Erreur lors de la creation de la colonne.\n");
                     break;
                 }
-
-                // Ajouter la colonne au CDataframe
                 add_column_to_dataframe(df, new_column);
 
-                // Saisir le nombre de lignes pour la nouvelle colonne
                 int num_rows;
                 printf("Nombre de lignes pour la nouvelle colonne: ");
                 scanf("%d", &num_rows);
 
-                // Saisir les valeurs pour la nouvelle colonne
                 int value;
                 for (int i = 0; i < num_rows; i++) {
                     printf("Valeur pour la ligne %d: ", i + 1);
                     scanf("%d", &value);
-                    insert_value(new_column, value); // Insère la valeur dans la nouvelle colonne
+                    insert_value(new_column, value);
                 }
-
                 printf("Colonne ajoutee avec les valeurs.\n");
             }
                 break;
             case 10:
             {
-                // Afficher les noms des colonnes pour que l'utilisateur puisse choisir
                 printf("Colonnes existantes :\n");
                 for (int i = 0; i < df->num_columns; i++) {
                     printf("%d. %s\n", i + 1, df->columns[i]->title);
@@ -157,22 +149,17 @@ int main() {
                 printf("Indice de la colonne a supprimer (entre 1 et %d): ", df->num_columns);
                 scanf("%d", &column_index);
 
-                // Vérifier si l'indice est valide
                 if (column_index < 1 || column_index > df->num_columns) {
                     printf("Indice de colonne invalide.\n");
                     break;
                 }
-
-                // Appel de la fonction remove_column pour supprimer la colonne
-                remove_column(df, column_index - 1);
-
+                remove_column(df, column_index - 1); // Appel de la fonction remove_column pour supprimer la colonne
                 printf("Colonne supprimee.\n");
             }
                 break;
 
             case 11:
             {
-                // Afficher les noms des colonnes pour que l'utilisateur puisse choisir
                 printf("Colonnes existantes :\n");
                 for (int i = 0; i < df->num_columns; i++) {
                     printf("%d. %s\n", i + 1, df->columns[i]->title);
@@ -182,20 +169,16 @@ int main() {
                 printf("Indice de la colonne a renommer (entre 1 et %d): ", df->num_columns);
                 scanf("%d", &column_index);
 
-                // Vérifier si l'indice est valide
                 if (column_index < 1 || column_index > df->num_columns) {
                     printf("Indice de colonne invalide.\n");
                     break;
                 }
 
-                // Saisir le nouveau titre pour la colonne
                 char new_title[100];
                 printf("Nouveau titre pour la colonne : ");
                 scanf("%s", new_title);
 
-                // Appel de la fonction rename_column pour renommer la colonne
-                rename_column(df, column_index - 1, new_title);
-
+                rename_column(df, column_index - 1, new_title); // Appel de la fonction rename_column pour renommer la colonne
                 printf("Colonne renommee.\n");
             }
                 break;
@@ -206,8 +189,7 @@ int main() {
                 printf("Valeur a verifier : ");
                 scanf("%d", &value);
 
-                // Appel de la fonction value_exists pour vérifier si la valeur existe dans le dataframe
-                if (value_exists(df, value)) {
+                if (value_exists(df, value)) { // Appel de la fonction value_exists pour vérifier si la valeur existe dans le dataframe
                     printf("La valeur %d existe dans le CDataframe.\n", value);
                 } else {
                     printf("La valeur %d n'existe pas dans le CDataframe.\n", value);
@@ -229,15 +211,14 @@ int main() {
 
                 if (row < 1 || row > num_rows(df) || col_index < 1 || col_index > num_cols(df)) {
                     printf("Indices de ligne ou de colonne invalides.\n");
-                } else {
-                    // Utiliser row - 1 et col_index - 1 car les indices commencent à partir de 0 dans le code
-                    // mais l'utilisateur saisit les indices à partir de 1
-                    set_value(df, row - 1, col_index - 1, new_value);
+                }
+                else {
+                    set_value(df, row - 1, col_index - 1, new_value); // Utiliser row - 1 et col_index - 1 car les indices commencent à partir de 0 dans le code
+                                                                                    // mais l'utilisateur saisit les indices à partir de 1
                     printf("La valeur a ete remplacee avec succes.\n");
                 }
                 break;
             }
-
 
             case 14:
                 print_column_titles(df);
@@ -246,7 +227,6 @@ int main() {
             case 15:
                 printf("Nombre de lignes: %d\n", num_rows(df));
                 break;
-
 
             case 16:
                 printf("Nombre de colonnes: %d\n", num_cols(df));
@@ -257,7 +237,7 @@ int main() {
                 int x;
                 printf("Entrez la valeur x : ");
                 scanf("%d", &x);
-                int count_equal = count_cells_equal_to_x(df, x);
+                int count_equal = count_cells_equal_to_x(df, x); //appel de la fonction
                 printf("Nombre de cellules contenant la valeur %d : %d\n", x, count_equal);
                 break;
             }
@@ -267,7 +247,7 @@ int main() {
                 int x;
                 printf("Entrez la valeur x : ");
                 scanf("%d", &x);
-                int count_greater = count_cells_greater_than_x(df, x);
+                int count_greater = count_cells_greater_than_x(df, x); //appel de la fonction
                 printf("Nombre de cellules contenant une valeur superieure a %d : %d\n", x, count_greater);
                 break;
             }
@@ -276,12 +256,11 @@ int main() {
                 int x;
                 printf("Entrez la valeur x : ");
                 scanf("%d", &x);
-                int count_less = count_cells_less_than_x(df, x);
+                int count_less = count_cells_less_than_x(df, x); //appel de la fonction
                 printf("Nombre de cellules contenant une valeur inferieure a %d : %d\n", x, count_less);
                 break;
             }
 
-                // Cases supplémentaires pour les autres options
             case 20:
                 printf("Programme termine.\n");
                 break;
@@ -292,9 +271,7 @@ int main() {
 
     } while (choice != 20);
 
-    // Libération de la mémoire
-    delete_dataframe(&df);
-
+    delete_dataframe(&df); // Libération de la mémoire
     return 0;
 }
 

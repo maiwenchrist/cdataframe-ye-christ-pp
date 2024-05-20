@@ -19,7 +19,7 @@ void delete_dataframe(CDataframe **df);
 void add_row(CDataframe *df, int *values);
 void remove_row(CDataframe *df, int row_index);
 void remove_column(CDataframe *df, int col_index);
-void rename_column(CDataframe *df, int col_index, const char *new_title);
+void rename_column(CDataframe *df, int col_index, char *new_title);
 int value_exists(CDataframe *df, int value);
 void set_value(CDataframe *df, int row, int col, int value);
 void print_column_titles(CDataframe *df);
