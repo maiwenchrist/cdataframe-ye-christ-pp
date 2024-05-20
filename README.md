@@ -34,13 +34,17 @@ Le programme offre un menu interactif qui vous permet de choisir parmi différen
 ### Alimentation
 
 *Créer un DataFrame vide : Crée un DataFrame sans colonnes ni lignes.
+
 *Remplir le DataFrame à partir de saisies utilisateur : Permet de créer des colonnes et d'y ajouter des valeurs via des saisies utilisateur.
+
 *Remplir le DataFrame en dur : Remplit le DataFrame avec des valeurs prédéfinies (hardcoded).
         
 ### Affichage
 
 *Afficher tout le DataFrame : Affiche toutes les données contenues dans le DataFrame.
+
 *Afficher une partie des lignes du DataFrame : Affiche un nombre spécifié de lignes du DataFrame.
+
 *Afficher une partie des colonnes du DataFrame : Affiche un nombre spécifié de colonnes du DataFrame.
        
 ### Opérations usuelles
