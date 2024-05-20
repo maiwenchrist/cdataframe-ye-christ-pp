@@ -232,9 +232,31 @@ int value_exists(CDataframe *cdf, int value){
     for (int i = 0; i < cdf->num_columns; i++) {
         for (int j = 0; j < cdf->columns[i]->logical_size; j++) {
             if (cdf->columns[i]->data[j] == value) {
+                printf("Valeur trouvée.\n");
                 return 1;
             }
         }
     }
+    printf("Valeur non trouvée.\n");
     return 0;
+}
+
+void set_value(CDataframe *cdf, int row, int col, int value){
+    if (col >= 0 && col < cdf->num_columns && row >= 0 && row < cdf->columns[col]->logical_size) {
+        int current_value = get_value_at_position(cdf->columns[col], row);
+        if (current_value != -1) {
+            cdf->columns[col]->data[row] = value;
+        } else {
+            printf("Erreur : Position (%d, %d) invalide dans le dataframe.\n", row, col);
+        }
+    } else {
+        printf("Erreur : Indices (%d, %d) hors limites.\n", row, col);
+    }
+}
+
+void print_column_titles(CDataframe *cdf){
+    for (int i = 0; i < cdf->num_columns; i++) {
+        printf("%s\t", cdf->columns[i]->title);
+    }
+    printf("\n");
 }

@@ -29,6 +29,7 @@ void add_column_to_dataframe(CDataframe *df, COLUMN *col);
 void remove_col(CDataframe *df,  int col_index);
 void rename_col(COLUMN *col, char *new_title);
 int value_exists(CDataframe *cdf, int value);
-
+void set_value(CDataframe *cdf, int row, int col, int value);
+void print_column_titles(CDataframe *cdf);
 
 #endif //CDATAFRAME_YE_CHRIST_PP_CDATAFRAME_H

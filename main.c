@@ -121,11 +121,29 @@ int main() {
                 int value;
                 printf("Valeur à rechercher: ");
                 scanf("%d", &value);
-                if (value_exists(df, value)) {
-                    printf("Valeur trouvée.\n");
+                value_exists(df, value);
+                break;
+            case 13:
+            {
+                int row, col, value;
+                printf("Entrez l'indice de la ligne : ");
+                scanf("%d", &row);
+                printf("Entrez l'indice de la colonne : ");
+                scanf("%d", &col);
+                int current_value = get_value_at_position(df->columns[col], row);
+                if (current_value != -1) {
+                    printf("Valeur actuelle à (%d, %d) : %d\n", row, col, current_value);
                 } else {
-                    printf("Valeur non trouvée.\n");
+                    printf("Position (%d, %d) invalide.\n", row, col);
                 }
+                printf("Entrez la nouvelle valeur : ");
+                scanf("%d", &value);
+                set_value(df, row, col, value);
+                printf("Valeur modifiée.\n");
+            }
+                break;
+            case 14:
+                print_column_titles(df);
                 break;
                 // Additional cases for other options should be implemented here
             case 20:
