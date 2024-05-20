@@ -89,6 +89,8 @@ Voici quelques exemples d'utilisation des options du menu :
 
 *Pour créer un DataFrame vide, choisissez l'option 1.
 
+*Pour créer son propre DataFrame, choisissez l'option 2 et suivez les instructions à l'écran pour entrer le nombre de colonnes, titres, nombre de valeurs et valeurs à ajouter.
+
 *Pour ajouter une colonne, choisissez l'option 9 et suivez les instructions à l'écran pour entrer le nom de la colonne et ses valeurs.
 
 *Pour afficher tout le DataFrame, choisissez l'option 4.
