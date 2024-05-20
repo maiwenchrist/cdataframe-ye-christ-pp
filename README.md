@@ -31,19 +31,19 @@ Pour exécuter le programme, utilisez la commande suivante :
 
 Le programme offre un menu interactif qui vous permet de choisir parmi différentes options pour manipuler le DataFrame. Voici les options disponibles :
 
-###Alimentation
+### Alimentation
 
  *Créer un DataFrame vide : Crée un DataFrame sans colonnes ni lignes.
  *Remplir le DataFrame à partir de saisies utilisateur : Permet de créer des colonnes et d'y ajouter des valeurs via des saisies utilisateur.
  *Remplir le DataFrame en dur : Remplit le DataFrame avec des valeurs prédéfinies (hardcoded).
         
-###Affichage
+### Affichage
 
 *Afficher tout le DataFrame : Affiche toutes les données contenues dans le DataFrame.
 *Afficher une partie des lignes du DataFrame : Affiche un nombre spécifié de lignes du DataFrame.
 *Afficher une partie des colonnes du DataFrame : Affiche un nombre spécifié de colonnes du DataFrame.
         
-###Opérations usuelles
+### Opérations usuelles
 
         *Ajouter une ligne : Ajoute une nouvelle ligne au DataFrame.
         *Supprimer une ligne : Supprime une ligne spécifiée du DataFrame.
@@ -54,7 +54,7 @@ Le programme offre un menu interactif qui vous permet de choisir parmi différen
         *Accéder/remplacer une valeur : Accède ou remplace une valeur spécifiée dans le DataFrame.
         *Afficher les noms des colonnes : Affiche les noms de toutes les colonnes du DataFrame.
         
-###Analyse et statistiques
+### Analyse et statistiques
 
         *Afficher le nombre de lignes : Affiche le nombre de lignes dans le DataFrame.
         *Afficher le nombre de colonnes : Affiche le nombre de colonnes dans le DataFrame.
@@ -63,11 +63,11 @@ Le programme offre un menu interactif qui vous permet de choisir parmi différen
         *Nombre de cellules contenant une valeur inférieure à x : Compte le nombre de cellules contenant une valeur inférieure à une valeur spécifiée.
         *Quitter : Quitte le programme.
 
-###Navigation dans le menu
+### Navigation dans le menu
 
         *Utilisez les numéros affichés dans le menu pour choisir une option. Par exemple, pour créer un DataFrame vide, entrez 1 et appuyez sur Entrée.
 
-##Exemples
+## Exemples
 
 Voici quelques exemples d'utilisation des options du menu :
 
@@ -75,7 +75,7 @@ Voici quelques exemples d'utilisation des options du menu :
         *Pour ajouter une colonne, choisissez l'option 9 et suivez les instructions à l'écran pour entrer le nom de la colonne et ses valeurs.
         *Pour afficher tout le DataFrame, choisissez l'option 4.
         
-##Libération de la mémoire
+## Libération de la mémoire
 
 Le programme prend soin de libérer la mémoire allouée pour le DataFrame avant de quitter. Si vous rencontrez des problèmes de mémoire, assurez-vous que le programme se termine             correctement.
 
